@@ -6,6 +6,13 @@ public class Payment {
     private int id;
     private int amount;
 
+    public Payment(int amount, Date date, PaymentState paymentState, int billId) {
+        this.amount = amount;
+        this.paymentDate = date;
+        this.paymentState = paymentState;
+        this.billId = billId;
+    }
+
     public int getId() {
         return id;
     }
@@ -30,15 +37,25 @@ public class Payment {
         this.paymentDate = paymentDate;
     }
 
-    public Bill getBill() {
-        return bill;
+    public int getBillId() {
+        return billId;
     }
 
-    public void setBill(Bill bill) {
-        this.bill = bill;
+    public void setBillId(int billId) {
+        this.billId = billId;
     }
 
     private Date paymentDate;
 
-    private Bill bill;
+    private int billId;
+
+    public PaymentState getPaymentState() {
+        return paymentState;
+    }
+
+    public void setPaymentState(PaymentState paymentState) {
+        this.paymentState = paymentState;
+    }
+
+    private PaymentState paymentState;
 }

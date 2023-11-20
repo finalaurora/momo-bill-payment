@@ -4,6 +4,16 @@ import java.util.Date;
 
 public class Bill {
     private int billId;
+
+    public Bill(int billId, BillType type, int amount, Date dueDate, BillState state, String provider) {
+        this.billId = billId;
+        this.type = type;
+        this.amount = amount;
+        this.dueDate = dueDate;
+        this.state = state;
+        this.provider = provider;
+    }
+
     private BillType type;
     private int amount;
     private Date dueDate;
@@ -56,5 +66,9 @@ public class Bill {
 
     public void setProvider(String provider) {
         this.provider = provider;
+    }
+
+    public boolean isExpired(){
+        return this.dueDate.before(new Date());
     }
 }
